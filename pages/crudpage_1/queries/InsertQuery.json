@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "UpdateQuery",
+    "name": "InsertQuery",
     "datasource": {
       "name": "2aabe4bb",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Page1",
+    "pageId": "crudpage_1",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "UPDATE public.\"category\" SET\n\t\t\"name\" = '{{update_col_2.text}}',\n    \"category_id\" = '{{update_col_3.text}}'\nWHERE \"last_update\" = {{Table1.selectedRow.last_update}};",
+      "body": "INSERT INTO public.\"category\" (\n\t\"last_update\",\n\t\"name\", \n\t\"category_id\")\nVALUES (\n\t\t\t\t{{insert_col_input1.text}}, \n\t\t\t\t{{insert_col_input2.text}}, \n\t\t\t\t{{insert_col_input3.text}});",
       "pluginSpecifiedTemplates": [
         {
           "value": true
@@ -30,16 +30,16 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "Table1.selectedRow.last_update",
-      "update_col_2.text",
-      "update_col_3.text"
+      "insert_col_input1.text",
+      "insert_col_input2.text",
+      "insert_col_input3.text"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page1_UpdateQuery",
+  "id": "crudpage_1_InsertQuery",
   "deleted": false,
-  "gitSyncId": "627be760ff02ef357104b1b6_627be771ff02ef357104b1bc"
+  "gitSyncId": "627be760ff02ef357104b1b6_627be771ff02ef357104b1c1"
 }
